@@ -8,9 +8,9 @@
                 <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>
             </div>
             <div class="pull-left info">
-                <p><?=Yii::$app->user->identity->username;?></p>
+                <p><?=Yii::$app->user->identity->username??"";?></p>
 
-                <a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
+                <a href="#"><i class="fa fa-circle text-success"></i> <?=Yii::$app->user->isGuest?"离线":"在线"?></a>
             </div>
         </div>
 
@@ -77,7 +77,7 @@
                     ],
                     [
                         'label' => '文章管理',
-                        'icon' => 'shopping-bag',
+                        'icon' => 'sticky-note-o',
                         'url' => '#',
                         'items' => [
                             ['label' => '文章列表', 'icon' => 'bars', 'url' => ['/article/index'],],
@@ -86,11 +86,19 @@
                     ],
                     [
                         'label' => '文章分类',
-                        'icon' => 'suitcase',
+                        'icon' => 'book',
                         'url' => '#',
                         'items' => [
                             ['label' => '分类列表', 'icon' => 'bars', 'url' => ['/article-category/index'],],
                             ['label' => '添加分类', 'icon' => 'plus-square', 'url' => ['/article-category/add'],],
+                        ],
+                    ],[
+                        'label' => '管理员分类',
+                        'icon' => 'address-card',
+                        'url' => '#',
+                        'items' => [
+                            ['label' => '管理员列表', 'icon' => 'bars', 'url' => ['/admin/show'],],
+                            ['label' => '添加管理员', 'icon' => 'plus-square', 'url' => ['/admin/add'],],
                         ],
                     ],
 //                    ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],

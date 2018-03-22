@@ -26,13 +26,13 @@ return [
             'csrfParam' => '_csrf-backend',
         ],
         'user' => [
-            'identityClass' => 'backend\models\Admin',
-            'enableAutoLogin' => true,
+            'identityClass' => \backend\models\Admin::className(),//类实现用户登录
+            'enableAutoLogin' => true,//开启令牌自动登录
             'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
             'on beforeLogin' => function($event) {
                 $user = $event->identity; //这里的就是User Model的实例
-                $user->last_login_at = time();
-                $user->last_login_ip = Yii::$app->request->userIP;
+                $user->login_time = time();
+                $user->login_ip = ip2long(Yii::$app->request->userIP);
                 $user->save();
 
             },
