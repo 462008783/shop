@@ -13,7 +13,7 @@ use yii\db\Exception;
 use yii\helpers\ArrayHelper;
 use yii\web\User;
 
-class GoodsController extends \yii\web\Controller
+class GoodsController extends BaseController
 {
 
     /**列表显示

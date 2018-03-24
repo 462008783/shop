@@ -14,7 +14,6 @@ use yii\widgets\ActiveForm;
         <?= $form->field($model, 'username') ?>
         <?= $form->field($model, 'password_hash')->passwordInput() ?>
         <?= $form->field($model, 'status')->radioList([0=>'禁用',1=>'激活'],['value'=>1]) ?>
-        <?= $form->field($item,'name')->radioList($roleArr );?>
 
         <div class="form-group">
             <?= Html::submitButton('提交', ['class' => 'btn btn-primary']) ?>
